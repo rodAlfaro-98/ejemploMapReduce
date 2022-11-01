@@ -1,4 +1,4 @@
-def Map(documents):
+def Map(documents: list) -> list:
     list = []
     for i in range(len(documents)):
         for j in documents[i]:
@@ -6,11 +6,10 @@ def Map(documents):
             list.append(pair)
     return list
 
-def Reduce(list):
+def Reduce(list: list) -> dict:
     map = {}
     for i in list:
         words = i[0].split(' ')
-        #print(words)
         for j in words:
             if j in map.keys():
                 map[j].append(i[1])

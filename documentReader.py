@@ -2,7 +2,7 @@ import PyPDF2
 from spacy.lang.en import English
 from spacy.lang.en.stop_words import STOP_WORDS
 
-def DocumentReader(docName):
+def DocumentReader(docName: str) -> list:
   nlp = English()
 
   reader = PyPDF2.PdfReader(docName)
