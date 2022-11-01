@@ -18,7 +18,18 @@ El proyecto funciona recibiendo un documento PDF sencillo y devolviendo un dicci
 
 ### PyPDF2
 
+Importamos PyPDF2 con la finalidad de poder obtener el contenido del documento pdf. Para esto usamos la siguiente función:
+
+- `PyPDF2.PdfReader`: se encarga de leer el documento pdf y retornar un objeto de tipo PdfReader. Este objeto nos permite acceder a las páginas del documento mediante el uso de índices como si fuera un arreglo (reader.pages[i]) e igualmente nos permite obtener una lista con las páginas dentro del documento (reader.pages)
+
 ### spacy
+
+Esta biblioteca se utiliza con la finalidad de poder eliminar las palabras dentro del pdf que aparecen muy seguido pero no aportan nada a nuestro documento. Para esto usamos los siguientes elementos:
+
+- `spacy.lang.en`: importamos las funcionalidades de Spacy para trabajar con palabras y frases en inglés.
+- `spacy.lang.en.stop_words`: importamos un diccionario que nos indica si una palabra entra en la categoría de stopword (palabras que aparecen mucho pero no aportan nada).
+
+Dentro del programa creamos un objeto nlp (natural language processor) a partir de las funcionalidas del idioma inglés importadas de Spacy (nlp = English()). Posteriormente procesamos cada palabra del documento para obtener las categorías de la palabra (doc = nlp(k)). Después de esto obtenemos el lexema de cada palabra (lexeme = nlp.vocab[word]) y finalmente revisamos si la palabra entra dentro de la categoría de stopwords para ver si la incluimos al índice o no (lexeme.is_stop == False).
 
 ## Archivos contenidos dentro del proyecto
 
